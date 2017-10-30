@@ -57,7 +57,7 @@ public class MacsListAdapter extends BaseAdapter {
         macViewHolder.txt_mac_name.setText("蓝牙名称："+macBean.getMacName());
         macViewHolder.txt_mac.setText("蓝牙地址："+macBean.getMacAddress());
         macViewHolder.txt_oldByte.setText("收到的蓝牙广播byte[]数据："+macBean.getData());
-        macViewHolder.txt_newByte.setText("解析出来的数据："+macBean.getNewContent());
+       // macViewHolder.txt_newByte.setText("解析出来的数据："+macBean.getNewContent());
         macViewHolder.txt_rssi.setText("rssi:"+macBean.getRssi());
         return view;
     }
