@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">搜索蓝牙</string>
+    <string name="titleName">iBeaconAdv</string>
+    <string name="txtSmallTitle">设置您的设备</string>
+    <string name="txtSiwtch">是否开启</string>
+    <string name="txtUUID">UUID</string>
+    <string name="txtName">名称</string>
+    <string name="txtMajor">Major</string>
+    <string name="txtMinor">Minor</string>
+    <string name="txtMeasuredPower">Measured Power</string>
+
+    <string name="ble_not_supported">ble_not_supported</string>
+    <string name="bluetooth_not_supported">Bluetooth not support</string>
+    <string name="string_help_text">当前应用缺少必要的权限，请点击进入设置界面进行权限设置</string>
+    <string name="quit">退出</string>
+    <string name="settings">设置</string>
+    <string name="help">帮助</string>
+
+    <!-- AdvertiseCallback errorCode -->
+    <string name="advertise_failed_data_too_large">Failed to start advertising as the advertise data to be broadcasted is larger than 31 bytes.</string>
+    <string name="advertise_failed_too_many_advertises">Failed to start advertising because no advertising instance is available.</string>
+    <string name="advertise_failed_already_started">Failed to start advertising as the advertising is already started</string>
+    <string name="advertise_failed_internal_error">Operation failed due to an internal error</string>
+    <string name="advertise_failed_feature_unsupported">This feature is not supported on this platform</string>
+</resources>

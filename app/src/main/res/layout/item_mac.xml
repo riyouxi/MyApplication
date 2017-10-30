@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txt_mac_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="11111"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp" />
+
+    <TextView
+        android:id="@+id/txt_mac"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="11111"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/txt_mac_name"/>
+    <TextView
+        android:id="@+id/rssi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/txt_mac"/>
+
+    <TextView
+        android:id="@+id/old_byte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="11111"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/rssi"/>
+
+    <TextView
+        android:id="@+id/new_byte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="11111"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/old_byte"/>
+
+</RelativeLayout>
