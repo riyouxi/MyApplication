@@ -10,6 +10,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.StringBuilderPrinter;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -68,6 +69,52 @@ public class SearchAcitivty extends AppCompatActivity implements BluetoothAdapte
                 isRequireCheck = false;
             }
         }
+        String s = "13FF00007D7E98590428a8b4";
+        byte[] temp =hexStringToBytes(s);
+        StringBuffer sb = new StringBuffer();
+        for(int i=0;i<temp.length;i++){
+            sb.append(temp[i]);
+        }
+        Log.e("TAG",sb.length()+sb.toString());
+        printHexString(temp);
+    }
+
+    public static void printHexString( byte[] b) {
+
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < b.length; i++) {
+            String hex = Integer.toHexString(b[i] & 0xFF);
+            if (hex.length() == 1) {
+                hex = '0' + hex;
+            }
+            sb.append(hex);
+        }
+        Log.e("TAG",sb.toString());
+
+    }
+
+
+    public static byte[] hexStringToBytes(String hexString) {
+        if (hexString == null || hexString.equals("")) {
+            return null;
+        }
+        hexString = hexString.toUpperCase();
+        int length = hexString.length() / 2;
+        char[] hexChars = hexString.toCharArray();
+        byte[] d = new byte[length];
+        for (int i = 0; i < length; i++) {
+            int pos = i * 2;
+            d[i] = (byte) (charToByte(hexChars[pos]) << 4 | charToByte(hexChars[pos + 1]));
+        }
+        return d;
+    }
+    /**
+     * Convert char to byte
+     * @param c char
+     * @return byte
+     */
+    private static byte charToByte(char c) {
+        return (byte) "0123456789ABCDEF".indexOf(c);
     }
 
     View.OnClickListener searchListener = new View.OnClickListener() {
@@ -138,8 +185,24 @@ public class SearchAcitivty extends AppCompatActivity implements BluetoothAdapte
         }
     }
 
+    public static String str2HexStr(String str) {
+        char[] chars = "0123456789ABCDEF".toCharArray();
+        StringBuilder sb = new StringBuilder("");
+        byte[] bs = str.getBytes();
+        int bit;
+
+        for (int i = 0; i < bs.length; i++) {
+            bit = (bs[i] & 0x0f0) >> 4;
+            sb.append(chars[bit]);
+            bit = bs[i] & 0x0f;
+            sb.append(chars[bit]);
+            sb.append(' ');
+        }
+        return sb.toString().trim();
+    }
     public void addMac(int rssi,String macName,String address,byte[]bytes){
 
+        //byte[] temp = {13,ff,6,0,1,9,32,0,-8,17,9,-41,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
         StringBuilder sb = new StringBuilder();
         byte[] head = new byte[2];
         System.arraycopy(bytes,offset,head,0,2);
